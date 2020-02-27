@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signin1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='signin2.css') }}">
+</head>
+<body class="text-center">
+    <!-- <div class="container"> -->
+        <form class="form-signin" method="POST" action="/verification/login">
+            <h1 class="h3 mb-3 font-weight-normal">ورود</h1>
+            <input type="text" name="user_name" id="inputUsername" class="form-control" placeholder="نام کاربری" required="" autofocus="">
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="رمز عبور" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">ورود</button>
+            <a href="{{ url_for('verification.register') }}">ثبت نام </a>
+        </form>
+            <!-- <a href="{{ url_for('verification.register') }}">ثبت نام کنید</a> -->
+    </div>
+</body>
+</html>

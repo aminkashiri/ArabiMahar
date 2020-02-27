@@ -1,0 +1,18 @@
+<div>{{test_title}}</div>
+<div>{{question.question_text}}</div>
+<div id = 'id1' style= " display : none ; ">{{question.definition}}</div>
+<div><a id = 'id2' style= " display : none ; "  href="{{url_for('test.answer' , response = True , testid = test_id )}}">True</a></div>
+<div><a id = 'id3' style= " display : none ; " href="{{url_for('test.answer' , response = False, testid = test_id )}}">False</a></div>
+<!-- <div><a id = 'answer' style= " visibility : hidden ; "  href="{{url_for('test.answer' , response = True , testid = test_id )}}">True</a></div> -->
+
+<!-- <input type="button" onclick="getElementById('answer').style.visibility ='show' ; " value="Test It" />  -->
+<input type="button" onclick="this.style.visibility= 'hidden'; getElementById('id1').style.display ='inline' ; getElementById('id2').style.display ='inline' ; getElementById('id3').style.display ='inline' ;" value="نمایش جواب" /> 
+
+<audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" ></audio>
+            <a onclick="playSound();">تلفظ</a>
+            <script>
+            function playSound() {
+                  var sound = document.getElementById("audio");
+                  sound.play();
+              }
+            </script>

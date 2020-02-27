@@ -1,0 +1,27 @@
+body {
+  background: url(/HTMLs/img/bg-masthead.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+.con-me {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.my-btn {
+  margin: 20px;
+  width: 40%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

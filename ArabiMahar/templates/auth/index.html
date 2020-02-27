@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    {% if user %}
+    <div>hello {{user.username}}</div>
+    {% endif %}
+    <form  method="POST" action="/verification/logout">
+        <input type="submit" value="logout">
+    </form>
+    <form  method="GET" action="/grades">
+        <input type="submit" value="list">
+    </form>
+</body>
+</html>

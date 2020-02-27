@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lessons2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lessons1.css') }}">
+</head>
+<body>
+    <!-- <div class="con-me">
+        {% for i in range(lesson_names|length) %}
+        <div>amin</div>
+        <a class="btn" href=" {{'{}/lessons/{}'.format(grade_number,i+1)}} ">{{lesson_names[i][0]}}</a>
+        <button class="my-btn btn btn-secondary">{{lesson_names[i][0]}}</button>
+        {% endfor %}
+    </div> -->
+    <div class="con-me">
+        {% for i in range(6) %}
+        <a href=" {{'{}'.format(i+7)}} " class="my-btn btn btn-secondary">{{grade_names[i][0]}}</a>
+        {% endfor %}
+    </div>
+</body>
+</html>

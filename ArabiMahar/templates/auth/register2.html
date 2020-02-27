@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<body>
+    <form method="POST" action="/verification/register">
+        <ul>
+            <li><a href="{{ url_for('verification.register') }}">Register</a>
+            <li><a href="{{ url_for('verification.login') }}">Log In</a>
+        </ul>
+        <center>
+        {% for message in get_flashed_messages() %}
+        <div>{{ message }}</div>
+        {% endfor %}
+        <H1>Enter your details </H1> <br>
+        UserName <input type = "text" name= "user_name" /> <br>
+        Password <input type = "password" name = "password" /> <br>
+        E-mail <input type = "email" name = "email" /> <br>
+        Telephone: <input type="tel" name="phone_number" pattern="[0-9]{11}}"><br>
+        <!-- Telephone <input type="tel" name="phone_number" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}"><br> -->
+        <input type = "submit" value = "register" >
+        </center>
+    </form>
+</body>
+</html>

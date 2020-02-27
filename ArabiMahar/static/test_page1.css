@@ -1,0 +1,8 @@
+.my-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    margin-left: 150px;
+}

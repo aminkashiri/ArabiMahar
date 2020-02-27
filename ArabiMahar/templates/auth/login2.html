@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<body>
+    <form method="POST" action="/verification/login">
+        <ul>
+            <li><a href="{{ url_for('verification.register') }}">Register</a>
+            <li><a href="{{ url_for('verification.login') }}">Log In</a>
+        </ul>
+        <center>
+        <h1>login</h1>
+        <H1>Enter your details </H1> <br>
+        UserName <input type = "text" name= "user_name" /> <br>
+        Password <input type = "password" name = "password" /> <br>
+        <input type = "submit">
+        {% for message in get_flashed_messages() %}
+        <div>{{ message }}</div>
+        {% endfor %}
+        </center>
+    </form>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div>{{test.title}}</div>
+
+<div>شما به {{corrects}} سوال از {{all_count}} سوال جواب صحبح دادید</div>
+{% if lesson_id %}
+<div><a href="{{url_for('grades.test_page' , grade_number = grade_id , lesson_number = (lesson_id+1) )}}">درس بعد</a></div>
+{% else %}
+<div><a href="{{url_for('grades.grades_page') }}">بازگشت</a></div>
+{% endif %}

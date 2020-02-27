@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lessons.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% for i in range(lesson_names|length) %}
+        <!-- <a href=" {{'%s/lessons/1' %grade_number}} " class="button">lesson {{i}}</a> -->
+        <a href=" {{'{}/lessons/{}'.format(grade_number,i+1)}} " class="button">{{lesson_names[i][0]}}</a>
+        {% endfor %}
+        <a href=" {{ '{}/lessons/first_term_random'.format(grade_number) }} " class="button">مرور نیم سال اول</a>
+    </div>
+</body>
+</html>
