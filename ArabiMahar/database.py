@@ -13,12 +13,12 @@ from flask.cli import with_appcontext
 # engine = create_engine('mysql+mysqlconnector://root:root@localhost:3306/logindb' , echo = True)
 # engine = create_engine('mysql+mysqlconnector://root:root@localhost:3306/arabimahar')
 
-host = os.environ.get('db_host' , 'localhost')
-db_name = os.environ.get('db_name' , 'arabimahar')
-mysql_user = os.environ.get('db_host' , 'root')
-mysql_password = os.environ.get('db_host' , 'root')
+host = os.environ.get('AMMAR_DB_HOST' , 'localhost:3306')
+db_name = os.environ.get('AMMAR_DB_NAME' , 'arabimahar')
+mysql_user = os.environ.get('AMMAR_DB_USERNAME' , 'root')
+mysql_password = os.environ.get('AMMAR_DB_PASSWORD' , 'root')
 
-engine_addr = 'mysql+mysqlconnector://{}:{}@{}:3306/{}'.format(mysql_user,mysql_password,host,db_name)
+engine_addr = 'mysql+mysqlconnector://{}:{}@{}/{}'.format(mysql_user,mysql_password,host,db_name)
 engine = create_engine(engine_addr)
 
 # print(os.environ.get('ALLUSERSPROFILE' , 'localhost'))
