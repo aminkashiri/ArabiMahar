@@ -10,8 +10,20 @@ from flask.cli import with_appcontext
 
 # db = sqlalchemy()
 # engine = create_engine(os.environ['SQLALCHEMY-URL']) // key error
-engine = create_engine('mysql+mysqlconnector://root:root@localhost:3306/arabimahar')
 # engine = create_engine('mysql+mysqlconnector://root:root@localhost:3306/logindb' , echo = True)
+# engine = create_engine('mysql+mysqlconnector://root:root@localhost:3306/arabimahar')
+
+host = os.environ.get('db_host' , 'localhost')
+db_name = os.environ.get('db_name' , 'arabimahar')
+mysql_user = os.environ.get('db_host' , 'root')
+mysql_password = os.environ.get('db_host' , 'root')
+
+engine_addr = 'mysql+mysqlconnector://{}:{}@{}:3306/{}'.format(mysql_user,mysql_password,host,db_name)
+engine = create_engine(engine_addr)
+
+# print(os.environ.get('ALLUSERSPROFILE' , 'localhost'))
+# print(dict(os.environ))
+
 
 Session = scoped_session(sessionmaker(bind=engine))
 dbSession = Session()
