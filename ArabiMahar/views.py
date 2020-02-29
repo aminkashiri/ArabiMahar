@@ -43,7 +43,8 @@ def register():
             # if a is not None:
         if error is None:
             # cursor.execute('INSERT INTO users (username,password) VALUES(%s,%s)' , (user_name,generate_password_hash(password) ,) )
-            dbSession.add(User(username = user_name,password = generate_password_hash(password) , email = email , phone_number = phone_number))
+            # dbSession.add(User(username = user_name,password = generate_password_hash(password) , email = email , phone_number = phone_number))
+            dbSession.add(User(username = user_name,password = generate_password_hash(password) , phone_number = phone_number))
             dbSession.commit()
             return redirect(url_for('verification.login'))
         else:
