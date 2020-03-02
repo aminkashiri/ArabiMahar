@@ -25,9 +25,15 @@ engine = create_engine(engine_addr)
 # print(dict(os.environ))
 
 
-Session = scoped_session(sessionmaker(bind=engine))
-dbSession = Session()
+dbSession = scoped_session(sessionmaker(bind=engine))
+# print(Session)
+# print(type(Session))
 
+# dbSession = Session()
+def shutdown_session():
+    # for i in  range(10):
+    #         print("hey")
+    dbSession.remove()
 
 def init_app(app):
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost:3306/logindb' #working one

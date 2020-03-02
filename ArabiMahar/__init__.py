@@ -6,7 +6,7 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = 'dev'
     
-    from database import init_app
+    from database import init_app , shutdown_session
     init_app(app)
 
     from views import authentication_blueprint , grades_blueprint , mobile_initialize_blueprint , test_blueprint
@@ -18,6 +18,10 @@ def create_app():
     @app.route('/')
     def base():
         return render_template('auth/base.html')
+
+    @app.teardown_appcontext
+    def teardown_test(exception = None ):
+        shutdown_session()
 
     return app
 # from flask import Flask

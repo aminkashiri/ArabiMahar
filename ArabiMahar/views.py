@@ -6,11 +6,14 @@ from werkzeug.security import check_password_hash , generate_password_hash
 from models import User , Grade , Lesson ,Question ,Configuration ,Test
 from database import dbSession
 from sqlalchemy.sql.expression import func
+# from wsgi import app
 
 authentication_blueprint = Blueprint('verification' , __name__ , url_prefix='/verification')
 grades_blueprint = Blueprint('grades' , __name__ , url_prefix='/grades')
 mobile_initialize_blueprint = Blueprint('mobileInitialize' , __name__ , url_prefix='/initialize')
 test_blueprint = Blueprint('test' , __name__ , url_prefix='/test')
+
+
 
 def is_logined():
     if g.user is None:
