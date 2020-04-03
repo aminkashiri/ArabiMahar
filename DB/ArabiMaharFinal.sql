@@ -89,7 +89,7 @@ CREATE TABLE `tbl-grades` (
 
 LOCK TABLES `tbl-grades` WRITE;
 /*!40000 ALTER TABLE `tbl-grades` DISABLE KEYS */;
-INSERT INTO `tbl-grades` VALUES (1,'هفتم','',0,7),(2,'هشتم','',0,8),(3,'نهم','',0,9),(4,'دهم','',8,10),(5,'یازدهم','',0,11),(6,'دوازدهم','',0,12);
+INSERT INTO `tbl-grades` VALUES (1,'هفتم','',0,7),(2,'هشتم','',0,8),(3,'نهم','',0,9),(4,'دهم','',8,10),(5,'یازدهم','',7,11),(6,'دوازدهم','',4,12);
 /*!40000 ALTER TABLE `tbl-grades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-03 19:42:39
+-- Dump completed on 2020-04-03 19:57:54
