@@ -9,7 +9,7 @@ def create_app():
     from database import init_app , shutdown_session
     init_app(app)
 
-    from views import authentication_blueprint , grades_blueprint , mobile_initialize_blueprint , test_blueprint
+    from views import authentication_blueprint , grades_blueprint , mobile_initialize_blueprint , test_blueprint , update_blueprint
     app.register_blueprint(update_blueprint)
     app.register_blueprint(authentication_blueprint)
     app.register_blueprint(grades_blueprint)
