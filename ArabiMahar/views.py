@@ -11,6 +11,7 @@ from sqlalchemy.sql.expression import func
 authentication_blueprint = Blueprint('verification' , __name__ , url_prefix='/verification')
 grades_blueprint = Blueprint('grades' , __name__ , url_prefix='/grades')
 mobile_initialize_blueprint = Blueprint('mobileInitialize' , __name__ , url_prefix='/initialize')
+update_blueprint = Blueprint('update' , __name__ , url_prefix='/update')
 test_blueprint = Blueprint('test' , __name__ , url_prefix='/test')
 
 
@@ -20,6 +21,32 @@ def is_logined():
         return False
     else:
         return True
+
+@update_blueprint.route('/add' , methods = ['POST','GET'])
+def update():
+    if request.method == 'POST':
+        b = True
+        user_name = request.form['user_name']
+        city = request.form['city']
+        province = request.form['province']
+        error = None
+        if not city:
+            error = 'لطفا شهرت رو وارد کن'
+        elif not province:
+            error = 'لطفا استانت رو وارد کن'
+        else:
+            user = dbSession.query(User).filter_by(username = user_name).first()
+            if user is None:
+                error = 'انگار ثبت نام نکردی'
+        if error is None:
+            user.city = city
+            user.province = province
+            b = False
+
+        return_dict = {'error' : b , 'errorMessage' : error}
+        # return return_dict
+                
+
 
 @authentication_blueprint.route('/register' , methods=['POST' , 'GET'])
 def register():

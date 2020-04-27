@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `arabimahar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE `arabimahar`;
 -- MySQL dump 10.13  Distrib 8.0.14, for Win64 (x86_64)
 --
 -- Host: localhost    Database: arabimahar
@@ -189,6 +187,8 @@ CREATE TABLE `tbl-users` (
   `username` varchar(80) NOT NULL,
   `password` varchar(120) NOT NULL,
   `phone_number` varchar(120) DEFAULT NULL,
+  `city` varchar(120) DEFAULT NULL,
+  `province` varchar(120) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -200,7 +200,6 @@ CREATE TABLE `tbl-users` (
 
 LOCK TABLES `tbl-users` WRITE;
 /*!40000 ALTER TABLE `tbl-users` DISABLE KEYS */;
-INSERT INTO `tbl-users` VALUES (1,'amin','pbkdf2:sha256:150000$5PPBz5Wg$2490993c40fd9f51331799e9a4555580b02ef542df75c135525794715517dcfa','09111111111');
 /*!40000 ALTER TABLE `tbl-users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-03 19:57:54
+-- Dump completed on 2020-04-27 12:42:19

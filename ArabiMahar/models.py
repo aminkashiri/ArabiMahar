@@ -11,7 +11,8 @@ class User(base):
     username = Column(String(80), unique=True, nullable=False)
     password = Column(String(120) , nullable=False)
     phone_number = Column(String(120) , nullable = True )
-
+    city = Column(String(120), nullable =True)
+    province = Column(String(120), nullable = True)
     # def __init__(self , username , password):
         # self.username = username
         # self.password = password
