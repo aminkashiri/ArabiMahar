@@ -10,6 +10,7 @@ def create_app():
     init_app(app)
 
     from views import authentication_blueprint , grades_blueprint , mobile_initialize_blueprint , test_blueprint
+    app.register_blueprint(update_blueprint)
     app.register_blueprint(authentication_blueprint)
     app.register_blueprint(grades_blueprint)
     app.register_blueprint(mobile_initialize_blueprint)
