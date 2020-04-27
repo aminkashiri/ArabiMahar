@@ -42,6 +42,7 @@ def update():
             user.city = city
             user.province = province
             b = False
+            dbSession.commit()
 
         return_dict = {'error' : b , 'errorMessage' : error}
         # return return_dict
