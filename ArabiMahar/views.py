@@ -23,7 +23,7 @@ def is_logined():
         return True
 
 @update_blueprint.route('/add' , methods = ['POST','GET'])
-def update():
+def add():
     if request.method == 'POST':
         b = True
         user_name = request.form['user_name']
