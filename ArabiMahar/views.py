@@ -29,7 +29,7 @@ def add():
         user_name = request.form['user_name']
         city = request.form['city']
         province = request.form['province']
-        buy_number = request.form['buy_number']
+        buy_number = int(request.form['buy_number'])
         error = None
         if not city:
             error = 'لطفا شهرت رو وارد کن'
