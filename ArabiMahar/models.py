@@ -13,6 +13,7 @@ class User(base):
     phone_number = Column(String(120) , nullable = True )
     city = Column(String(120), nullable =True)
     province = Column(String(120), nullable = True)
+    bought = Column(Integer)
     # def __init__(self , username , password):
         # self.username = username
         # self.password = password

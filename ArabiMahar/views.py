@@ -29,11 +29,16 @@ def add():
         user_name = request.form['user_name']
         city = request.form['city']
         province = request.form['province']
+        buy_number = request.form['buy_number']
         error = None
         if not city:
             error = 'لطفا شهرت رو وارد کن'
         elif not province:
             error = 'لطفا استانت رو وارد کن'
+        elif not buy_number:
+            error = 'کدوم درس رو بخرم؟'
+        elif buy_number > 4:
+            error = 'تو خرید درس مشکل داشتیم'
         else:
             user = dbSession.query(User).filter_by(username = user_name).first()
             if user is None:
@@ -41,11 +46,18 @@ def add():
         if error is None:
             user.city = city
             user.province = province
-            b = False
+            
+            if buy_number == 4:
+                user.bought = 7
+            else:
+                user.bought = user.bought + buy_number
             dbSession.commit()
+            b = False
 
         return_dict = {'error' : b , 'errorMessage' : error}
-        # return return_dict
+        return return_dict
+
+
                 
 
 
@@ -102,7 +114,7 @@ def mregister():
             if user is not None:
                 error = 'اسمت تکراریه'
         if error is None:
-            user = User( username = user_name , password = generate_password_hash(password) , phone_number = phone_number)
+            user = User( username = user_name , password = generate_password_hash(password) , phone_number = phone_number , bought = 0)
             dbSession.add(user)
             # user_server_id = dbSession.query(User).filter_by(id=user_server_id).first()
             dbSession.commit()
