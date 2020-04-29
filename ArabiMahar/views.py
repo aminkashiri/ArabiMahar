@@ -33,16 +33,21 @@ def add():
         error = None
         if not city:
             error = 'لطفا شهرت رو وارد کن'
+            print(error)
         elif not province:
             error = 'لطفا استانت رو وارد کن'
+            print(error)
         elif not buy_number:
             error = 'کدوم درس رو بخرم؟'
+            print(error)
         elif buy_number > 4:
             error = 'تو خرید درس مشکل داشتیم'
+            print(error)
         else:
             user = dbSession.query(User).filter_by(username = user_name).first()
             if user is None:
                 error = 'انگار ثبت نام نکردی'
+                print(error)
         if error is None:
             user.city = city
             user.province = province
