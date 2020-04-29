@@ -128,6 +128,25 @@ def mregister():
     returnDict = { "error" : b , "errorMessage" : error , 'user_server_id' : user.id }
     return returnDict
 
+@authentication_blueprint.route('/mlogin' , methods=['POST' , 'GET'])
+def mlogin():
+    b = True
+    if request.method == 'POST':
+        user_name = request.form['user_name']
+        password = request.form['password']
+        user = dbSession.query(User).filter_by(username=user_name).first()
+        error = None
+
+        if user is None:
+            error = 'Username not founded'
+        elif not check_password_hash(user.password, password):
+            error = 'Password incorrect'
+        if error is None :
+            b = False
+
+    returnDict = { "error" : b , "errorMessage" : error , "server_user_id" : user.id }
+    return returnDict
+
 @authentication_blueprint.route('/login' , methods=['POST' , 'GET'])
 def login():
     if request.method == 'POST':
@@ -147,25 +166,6 @@ def login():
         flash(error)
 
     return render_template('auth/login.html')
-
-@authentication_blueprint.route('/mlogin' , methods=['POST' , 'GET'])
-def mlogin():
-    b = True
-    if request.method == 'POST':
-        user_name = request.form['user_name']
-        password = request.form['password']
-        user = dbSession.query(User).filter_by(username=user_name).first()
-        error = None
-
-        if user is None:
-            error = 'Username not founded'
-        elif not check_password_hash(user.password, password):
-            error = 'Password incorrect'
-        if error is None :
-            b = False
-
-    returnDict = { "error" : b , "errorMessage" : error , "server_user_id" : user.id }
-    return returnDict
 
 @authentication_blueprint.route('/index' , methods=['POST','GET'])
 def index():
@@ -381,9 +381,9 @@ def initialize():
         question_dict['number'] = question.question_number
         questions.append(question_dict)
         
-    print(grades)
-    print(lessons)
-    print(questions)
+    # print(grades)
+    # print(lessons)
+    # print(questions)
     return { "grades" : grades , "lessons" : lessons , "questions" : questions}
     # return render_template('test_page/test_page.html' , questions = questions)
 
